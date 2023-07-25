@@ -27,7 +27,7 @@ jobs:
           echo "Running terrafrom validate"
           terraform validate
           echo "Running terrafrom apply"
-          terraform apply -auto-approve
+          terraform apply -auto-approve -var-file variable.tf
 
 
 workflows:
