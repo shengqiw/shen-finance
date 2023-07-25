@@ -10,16 +10,20 @@ jobs:
       - run: 
           name: Install Terraform
           command: |
-            curl -LO "https://releases.hashicorp.com/terraform/1.0.6/terraform_1.0.6_linux_amd64.zip"
-            unzip terraform_1.0.6_linux_amd64.zip
+            curl -LO "https://releases.hashicorp.com/terraform/1.5.3/terraform_1.5.3_linux_amd64.zip"
+            unzip terraform_1.5.3_linux_amd64.zip
             sudo mv terraform /usr/local/bin/
             terraform version
 
-      - run: pwd
-      - run: cd Terraform
-      - run: terraform init
-      - run: terraform validate
-      - run: terraform apply
+      - run: 
+          name: Deploy terraform
+          commands: |
+          pwd
+          cd Terraform
+          pwd
+          terraform init
+          terraform validate
+      # - run: terraform apply
 
 
 workflows:
