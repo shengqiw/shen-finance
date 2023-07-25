@@ -5,21 +5,20 @@ terraform {
       version = "~> 4.16"
     }
   }
-
   required_version = ">= 1.2.0"
 }
 
 provider "aws" {
   region = "us-east-1"
-  access_key = "AKIAVXVHRLCE437TPIXK"
-  secret_key = "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"
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
 }
 
-resource "aws_instance" "shen-node-server" {
+resource "aws_instance" "app-server" {
   ami           = "ami-053b0d53c279acc90"
   instance_type = "t2.micro"
   security_groups = ["default"]
   tags = {
-    Name = "Terrform CircleCi"
+    Name = "Terraform EC2"
   }
 }
