@@ -16,12 +16,16 @@ jobs:
             terraform version
 
       - run: |
-          pwd
+          echo "Navigating to Terraform folder"
           cd Terraform
           ls
+          echo "Running terrafrom init"
           terraform init
+          ls
+          echo "Running terrafrom validate"
           terraform validate
-      # - run: terraform apply
+          echo "Running terrafrom apply"
+          terraform apply
 
 
 workflows:
