@@ -25,7 +25,7 @@ jobs:
           echo "Running terrafrom validate"
           terraform validate
           echo "Running terrafrom apply"
-          terraform apply
+          terraform apply -auto-approve
 
 
 workflows:
