@@ -16,10 +16,8 @@ jobs:
             terraform version
 
       - run: |
-        export AWS_ACCESS_KEY_ID=AKIAVXVHRLCE437TPIXK
-        export AWS_SECRET_ACCESS_KEY=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
-        
-      - run: |
+          export AWS_ACCESS_KEY_ID="AKIAVXVHRLCE437TPIXK"
+          export AWS_SECRET_ACCESS_KEY="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"
           echo "Navigating to Terraform folder"
           cd Terraform
           ls
