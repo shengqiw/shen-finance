@@ -16,8 +16,6 @@ jobs:
             terraform version
 
       - run: 
-          name: Deploy terraform
-          command: |
           pwd
           cd Terraform
           pwd
