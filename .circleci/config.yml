@@ -15,10 +15,10 @@ jobs:
             sudo mv terraform /usr/local/bin/
             terraform version
 
-      - run: 
+      - run: |
           pwd
           cd Terraform
-          pwd
+          ls
           terraform init
           terraform validate
       # - run: terraform apply
