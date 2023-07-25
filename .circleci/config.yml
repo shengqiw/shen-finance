@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
+      - run: 
+          name: Install Terraform
+          command: brew install terraform
+
       - run: pwd
       - run: cd Terraform
       - run: terraform init
