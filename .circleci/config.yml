@@ -23,7 +23,6 @@ jobs:
           ls
           echo "Running terrafrom init"
           terraform init
-          ls
           echo "Running terrafrom validate"
           terraform validate
           echo "Running terrafrom apply"
