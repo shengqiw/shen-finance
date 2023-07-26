@@ -20,7 +20,7 @@ jobs:
           name: Install Terraform
           command: |
             [ -f "./terraform_1.5.3_linux_amd64.zip" ] && echo 'File Exists' || curl -LO "https://releases.hashicorp.com/terraform/1.5.3/terraform_1.5.3_linux_amd64.zip"
-            [ -f "./terraform_1.5.3_linux_amd64.zip" ] && echo 'No need to unzip again' || unzip terraform_1.5.3_linux_amd64.zip && sudo mv terraform /usr/local/bin/
+            [ -f "./terraform_1.5.3_linux_amd64" ] && echo 'No need to unzip again' || unzip terraform_1.5.3_linux_amd64.zip && sudo mv terraform /usr/local/bin/
             ls -la
             ls -la /usr/local/bin/
             terraform version
