@@ -7,6 +7,7 @@ jobs:
     environment:
     # aws thinks this is a game .\/.
     # I tricked amazon? Removing AWSCompromisedKeyQuarantineV2
+    # dummy commit to trigger new circleci pipeline
     steps:
       - run: |
           ls -la
