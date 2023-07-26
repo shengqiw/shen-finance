@@ -10,8 +10,8 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
-  access_key = "$AWS_ACCESS_KEY_ID"
-  secret_key = "$AWS_SECRET_ACCESS_KEY"
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
 }
 
 resource "aws_instance" "app-server" {
@@ -19,6 +19,6 @@ resource "aws_instance" "app-server" {
   instance_type = "t2.micro"
   security_groups = ["default"]
   tags = {
-    Name = "CircleCi Terraform EC2"
+    Name = "CircleCi Terraform EC2 try 2"
   }
 }
