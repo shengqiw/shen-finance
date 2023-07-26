@@ -4,6 +4,9 @@ jobs:
   hello-job:
     docker:
       - image: cimg/node:18.17.0 # the primary container, where your job's commands are run
+    environment:
+      AWS_ACCESS_KEY_ID: AKIAVXVHRLCE437TPIXK
+      AWS_SECRET_ACCESS_KEY: WfAWUq57hXzP+aVTLvBV1oCB3bm7MFXc57YN0Ju0
     steps:
       - run: |
           ls -la
@@ -32,8 +35,6 @@ jobs:
       - run:
           name: Terraform Initialize Infrastructure
           command: |
-            export AWS_ACCESS_KEY_ID=AKIAVXVHRLCE437TPIXK
-            export AWS_SECRET_ACCESS_KEY=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
             echo "Navigating to Terraform folder"
             cd infra-terraform
             pwd
