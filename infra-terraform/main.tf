@@ -19,6 +19,6 @@ resource "aws_instance" "app-server" {
   instance_type = "t2.micro"
   security_groups = ["default"]
   tags = {
-    Name = "Terraform EC2"
+    Name = "CircleCi Terraform EC2"
   }
 }
