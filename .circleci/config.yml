@@ -35,7 +35,7 @@ jobs:
             export AWS_ACCESS_KEY_ID=AKIAVXVHRLCE437TPIXK
             export AWS_SECRET_ACCESS_KEY=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
             echo "Navigating to Terraform folder"
-            cd terraform-infra
+            cd infra-terraform
             pwd
             ls -la
             echo "Running terrafrom init"
