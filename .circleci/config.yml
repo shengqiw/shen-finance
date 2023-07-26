@@ -10,11 +10,11 @@ jobs:
           rm -rf ./shen-finance
 
       - checkout # check out the code in the project directory
-      
+
       - run: |
-          echo "\nMornin Shen\nfolder name..." # run the `echo` command
+          echo -e "\nMornin Shen\nfolder name..." # run the `echo` command
           pwd
-          echo "\ncurrent files... "
+          echo -e "\ncurrent files... "
           ls -la
       - run: 
           name: Install Terraform
