@@ -6,6 +6,7 @@ jobs:
       - image: cimg/node:18.17.0 # the primary container, where your job's commands are run
     environment:
     # aws thinks this is a game .\/.
+    # I tricked amazon? Removing AWSCompromisedKeyQuarantineV2
       AWS_ACCESS_KEY_ID: "AKIAVXVHRLCE5VOPFEGQ"
       AWS_SECRET_ACCESS_KEY: "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"
     steps:
