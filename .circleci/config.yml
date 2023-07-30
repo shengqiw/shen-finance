@@ -43,7 +43,7 @@ jobs:
           echo "Running terrafrom validate"
           terraform validate
           echo "Running terrafrom apply"
-          terraform destroy -auto-approve
+          terraform apply -auto-approve
 
 workflows:
   build-workflow:
