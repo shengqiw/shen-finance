@@ -14,11 +14,11 @@ provider "aws" {
   secret_key = var.secret_key
 }
 
-resource "aws_instance" "app-server" {
-  ami           = "ami-053b0d53c279acc90"
-  instance_type = "t2.micro"
-  security_groups = ["default"]
-  tags = {
-    Name = "CircleCi Terraform EC2 try 2"
-  }
-}
+# resource "aws_instance" "app-server" {
+#   ami           = "ami-053b0d53c279acc90"
+#   instance_type = "t2.micro"
+#   security_groups = ["default"]
+#   tags = {
+#     Name = "CircleCi Terraform EC2 try 2"
+#   }
+# }
