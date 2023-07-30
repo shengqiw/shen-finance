@@ -50,7 +50,7 @@ jobs:
 
   bye-job: 
     steps:
-      - approval
+      - approve:
       - run:
           name: Terraform Destroy Infrastructure
           command: |
@@ -68,10 +68,6 @@ jobs:
 
 workflows:
   build-workflow:
-    jobs:
-      - setup-job
-      - hello-job
-  destroy-workflow:
     jobs:
       - setup-job
       - bye-job
