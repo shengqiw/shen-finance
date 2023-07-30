@@ -47,8 +47,10 @@ jobs:
             terraform validate
             echo "Running terrafrom apply"
             terraform apply -auto-approve
+
   bye-job: 
     steps:
+      - approval
       - run:
           name: Terraform Destroy Infrastructure
           command: |
