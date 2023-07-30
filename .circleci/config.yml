@@ -1,13 +1,13 @@
 version: 2.1
 
 jobs:
-  hello-job:
+  setup-job:
     docker:
-      - image: cimg/node:18.17.0 # the primary container, where your job's commands are run
-    environment:
-    # aws thinks this is a game .\/.
-    # I tricked amazon? Removing AWSCompromisedKeyQuarantineV2
-    # dummy commit to trigger new circleci pipeline
+          - image: cimg/node:18.17.0 # the primary container, where your job's commands are run
+        environment:
+        # aws thinks this is a game .\/.
+        # I tricked amazon? Removing AWSCompromisedKeyQuarantineV2
+        # dummy commit to trigger new circleci pipeline
     steps:
       - run: |
           ls -la
@@ -33,6 +33,8 @@ jobs:
             ls -la /usr/local/bin/
             terraform version
 
+  hello-job: 
+    steps:
       - run:
           name: Terraform Initialize Infrastructure
           command: |
@@ -46,9 +48,30 @@ jobs:
             terraform validate
             echo "Running terrafrom apply"
             terraform apply -auto-approve
+  bye-job: 
+    steps:
+      - run:
+          name: Terraform Destroy Infrastructure
+          command: |
+            echo "Navigating to Terraform folder"
+            cd infra-terraform
+            pwd
+            ls -la
+            echo "Running terrafrom init"
+            terraform init
+            echo "Running terrafrom validate"
+            terraform validate
+            echo "Running terrafrom apply"
+            terraform apply -destroy -auto-approve
 
 
 workflows:
-  my-workflow:
+  build-workflow:
     jobs:
+      - setup-job
       - hello-job
+  destroy-workflow:
+    jobs:
+      - setup-job
+      - bye-job
+  
