@@ -32,7 +32,7 @@ jobs:
           ls -la /usr/local/bin/
           terraform version
     - run:
-        name: Terraform Initialize Infrastructure
+        name: Terraform Destroy Infrastructure
         command: |
           echo "Navigating to Terraform folder"
           cd infra-terraform
@@ -43,7 +43,7 @@ jobs:
           echo "Running terrafrom validate"
           terraform validate
           echo "Running terrafrom apply"
-          terraform apply -destroy -auto-approve
+          terraform destroy -auto-approve
 
 workflows:
   build-workflow:
