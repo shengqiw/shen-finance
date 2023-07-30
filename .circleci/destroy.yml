@@ -1,0 +1,54 @@
+version: 2.1
+
+jobs:
+  hello-job:
+    docker:
+      - image: cimg/node:18.17.0 # the primary container, where your job's commands are run
+    environment:
+    # aws thinks this is a game .\/.
+    # I tricked amazon? Removing AWSCompromisedKeyQuarantineV2
+    # dummy commit to trigger new circleci pipeline
+    steps:
+      - run: |
+          ls -la
+          rm -rf ./shen-finance || true
+
+      - checkout # check out the code in the project directory
+
+      - run: |
+          echo -e "\nMornin Shen\n\nfolder name..." # run the `echo` command
+          pwd
+          echo -e "\fresh files... "
+          ls -la
+      - run: 
+          name: Install Terraform
+          command: |
+            rm -rf ./terraform*
+            curl -LO "https://releases.hashicorp.com/terraform/1.5.3/terraform_1.5.3_linux_amd64.zip"
+            unzip terraform_1.5.3_linux_amd64.zip
+            ls -la
+            sudo mv terraform /usr/local/bin/
+            rm ./terraform*
+            ls -la
+            ls -la /usr/local/bin/
+            terraform version
+
+      - run:
+          name: Terraform Initialize Infrastructure
+          command: |
+            echo "Navigating to Terraform folder"
+            cd infra-terraform
+            pwd
+            ls -la
+            echo "Running terrafrom init"
+            terraform init
+            echo "Running terrafrom validate"
+            terraform validate
+            echo "Running terrafrom apply"
+            terraform apply -destroy -auto-approve
+
+
+workflows:
+  my-workflow:
+    jobs:
+      - hello-job
