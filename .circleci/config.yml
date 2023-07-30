@@ -46,29 +46,11 @@ jobs:
             echo "Running terrafrom validate"
             terraform validate
             echo "Running terrafrom apply"
-            terraform apply -auto-approve
-
-  bye-job: 
-    steps:
-      - approve:
-      - run:
-          name: Terraform Destroy Infrastructure
-          command: |
-            echo "Navigating to Terraform folder"
-            cd infra-terraform
-            pwd
-            ls -la
-            echo "Running terrafrom init"
-            terraform init
-            echo "Running terrafrom validate"
-            terraform validate
-            echo "Running terrafrom apply"
             terraform apply -destroy -auto-approve
-
 
 workflows:
   build-workflow:
     jobs:
       - setup-job
-      - bye-job
+      - hello-job
   
